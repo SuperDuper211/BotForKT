@@ -1,0 +1,39 @@
+import telebot
+
+bot = telebot.TeleBot('8564868205:AAHKJ1fzbhPnhhWNQbntV1HMNZVT-IXcB8s')
+
+@bot.message_handler(commands=['start'])
+def start_commands(message):
+    bot.send_message(message.chat.id, f'Привет! <u><em>{message.from_user.first_name}</em></u> \nВы можете обратиться к /help чтобы узнать список команд', parse_mode='html')
+
+@bot.message_handler(commands=['add'])
+def add_commands(message):
+
+@bot.message_handler(commands=['stats'])
+def stats_commands(message):
+
+@bot.message_handler(commands=['help'])
+def help_commands(message):
+    help_text = (
+        "Доступные команды:\n"
+        "/start - 🚀 |Запуск бота, приветствие и инструкция.\n"
+        "/add - ➕ |Начало процесса ввода данных за сегодня.\n"
+        "/stats - 📊 |Показ сводки за неделю/месяц.\n"
+        "/help - ❓ |Краткая справка.\n"
+        "/history - 📜 |История.\n"
+        "/settings - ⚙️ |Настройки.\n"
+        "/clear - 🗑️ |Очистка данных при подтверждении действия.\n"
+    )
+    bot.send_message(message.chat.id, help_text)
+
+@bot.message_handler(commands=['history'])
+def history_commands(message):
+
+@bot.message_handler(commands=['settings'])
+def settings_commands(message):
+
+@bot.message_handler(commands=['clear'])
+def clear_commands(message):
+
+
+bot.polling(non_stop=True)
